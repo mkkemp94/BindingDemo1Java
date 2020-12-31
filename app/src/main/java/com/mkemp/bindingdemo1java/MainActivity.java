@@ -16,9 +16,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-       
-        activityMainBinding.tvStudentName.setText(getCurrentStudent().getStudentName());
-        activityMainBinding.tvStudentEmail.setText(getCurrentStudent().getStudentEmail());
+        activityMainBinding.setStudent(getCurrentStudent());
     }
     
     private Student getCurrentStudent()
