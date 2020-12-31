@@ -1,26 +1,24 @@
 package com.mkemp.bindingdemo1java;
 
 import android.os.Bundle;
-import android.widget.TextView;
+
+import com.mkemp.bindingdemo1java.databinding.ActivityMainBinding;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 public class MainActivity extends AppCompatActivity
 {
-    private TextView nameText;
-    private TextView emailText;
+    private ActivityMainBinding activityMainBinding;
     
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        nameText = findViewById(R.id.tvStudentName);
-        emailText = findViewById(R.id.tvStudentEmail);
-        
-        nameText.setText(getCurrentStudent().getStudentName());
-        emailText.setText(getCurrentStudent().getStudentEmail());
+        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+       
+        activityMainBinding.tvStudentName.setText(getCurrentStudent().getStudentName());
+        activityMainBinding.tvStudentEmail.setText(getCurrentStudent().getStudentEmail());
     }
     
     private Student getCurrentStudent()
